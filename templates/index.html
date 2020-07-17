@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>rescan</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+        <script async src="https://arc.io/widget.js#JqdhCJKH"></script>
+
+        <meta name="description" content="we scan the internet for fun, not profit">
+
+        <meta property="twitter:title" content="rescan">
+
+        <meta property="og:url" content="https://rescan.retarders.wtf">
+        <meta property="og:title" content="rescan">
+        <meta property="og:sitename" content="rescan">
+        <meta property="og:description" content="we scan the internet for fun, not profit">
+    </head>
+
+    <body>
+        <div class="notification is-warning">
+            <p>
+                We scan the whole internet <strong>every week</strong> with our own resources, if you want to support us,
+                        <a href="https://www.buymeacoffee.com/retarders">buy us a coffee</a>
+            </p>
+        </div>
+
+
+                <section class="container">
+            <div class="content">
+                <h1 class="title">
+                    rescan
+                </h1>
+                <p class="subtitle">
+                    we're making data free again
+                    <br>
+                    we scan the internet for fun, <strong>not profit</strong>
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section">
+            <nav class="level">
+
+                {% for port, data in cache.items() %}
+                    <div class="level-item has-text-centered">
+                        <div>
+                            <p class="heading">{{ port }} / TCP</p>
+                            <p class="title">{{ data['formattedLines'] }}</p>
+                            <br>
+                            <a href="/port/{{ port }}" class="button is-link">Details</a>
+                            <a href="/get/{{ port }}" class="button is-link">Get</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </nav>
+        </section>
+
+    </body>
+
+</script>
+</html>
